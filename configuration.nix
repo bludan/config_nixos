@@ -36,7 +36,11 @@
     LC_TELEPHONE = "cs_CZ.UTF-8";
     LC_TIME = "cs_CZ.UTF-8";
   };
-
+  i18n.inputMethod = {
+  enable = true;
+  type = "ibus";
+  ibus.engines = with pkgs.ibus-engines; [ pinyin ];
+  };
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -46,10 +50,9 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "us,cn,cz";
     variant = "";
   };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -104,7 +107,18 @@
 	gnome-extension-manager
 	gnome-extensions-cli
 	git
+	anki-bin
+	mpv
+	ibus
+	noto-fonts
+	noto-fonts-lgc-plus
+	noto-fonts-cjk-sans
   ];
+  environment.variables = {
+	GTK_IM_MODULE = "ibus";
+	QT_IM_MODULE = "ibus";
+	XMODIFIERS = "@im=ibus";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
