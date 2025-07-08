@@ -26,6 +26,7 @@
 
 	  modules = [
 	  ./nixos/configuration.nix
+	  ./nixos/dev-tools.nix
 	  ];
 	};
        };
