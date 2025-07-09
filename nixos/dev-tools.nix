@@ -24,8 +24,13 @@
 	xclip	# clipboard support for xorg
 	wl-clipboard 	# clipboard for wayland
 	webkitgtk_6_0	# rendering engine
+	webkitgtk_4_1	# rendering engine (older version for tauri)
 	librsvg # rendering SVG images
+	glib	# NEW
+	gtk3	# NEW
 	android-studio 	# IDE for android dev
+	openssl	# NEW
+  	
   ];
   # makes storing data easier and more reproducable
   environment.variables = {

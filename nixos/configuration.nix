@@ -113,6 +113,7 @@
 	noto-fonts-lgc-plus
 	noto-fonts-cjk-serif
 	chatterino7
+	pkg-config
   ];
   environment.variables = {
 	GTK_IM_MODULE = "ibus";
