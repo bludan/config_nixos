@@ -18,7 +18,7 @@
 
 	nix.enable = true;
 	ts.enable = true;
-	react.enable = true;
-	}
-  }
+	rust.enable = true;
+	};
+  };
 }

@@ -15,18 +15,18 @@
 	config = {
 	  allowUnfree = true;
 	  };
-    };
-
+     };
     in 
     {
-	packages."84_64-linux".default = 
+	packages."x86_64-linux".default = 
 	  (nvf.lib.neovimConfiguration {
 	    pkgs = nixpkgs.legacyPackages."x86_64-linux";
 	    modules = [ ./nvf-configuration.nix ];
 	    }).neovim;
 	nixosConfigurations = {
 	 default = nixpkgs.lib.nixosSystem {
-	  specialArgs = {inherit system; };
+	   inherit system;
+	  specialArgs = { inherit pkgs; };
 
 	  modules = [
 	  ./nixos/configuration.nix
