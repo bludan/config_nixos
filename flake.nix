@@ -21,7 +21,7 @@
 	packages."x86_64-linux".default = 
 	  (nvf.lib.neovimConfiguration {
 	    pkgs = nixpkgs.legacyPackages."x86_64-linux";
-	    modules = [ /home/karson/mysystem/nvf-configuration.nix ];
+	    modules = [ ./nvf-configuration.nix ];
 	    }).neovim;
 	nixosConfigurations = {
 	 default = nixpkgs.lib.nixosSystem {
