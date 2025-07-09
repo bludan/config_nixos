@@ -101,7 +101,6 @@
 	wget
 	discord
 	spotify
-	neovim
 	wineWowPackages.staging
 	winetricks
 	gnome-extension-manager

@@ -17,6 +17,15 @@
 	rust-analyzer	# idk if needed
 	rustup	# toolchain manager
 	python313Packages.pip	# python pkg manager
+	neovim 	# vim fork
+	vimPlugins.nvchad	# nvim config
+ 	repgrep	# better grep
+	fd	# file finding
+	xclip	# clipboard support for xorg
+	wl-clipboard 	# clipboard for wayland
+	webkitgtk_6_0	# rendering engine
+	librsvg # rendering SVG images
+	android-studio 	# IDE for android dev
   ];
   # makes storing data easier and more reproducable
   environment.variables = {
