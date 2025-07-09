@@ -114,6 +114,7 @@
 	noto-fonts-cjk-serif
 	chatterino7
 	pkg-config
+	tmux
   ];
   environment.variables = {
 	GTK_IM_MODULE = "ibus";
