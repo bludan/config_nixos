@@ -4,8 +4,12 @@
   vim = {
     theme = {
       enable = true;
-      name = "gruvbox";
-      style = "dark";
+      name = "solarized-osaka";
+      style = "deep";
+      };
+     
+     visuals = {
+       indent-blankline.enable = true;
       };
 
       statusline.lualine.enable = true;
@@ -19,6 +23,15 @@
 	nix.enable = true;
 	ts.enable = true;
 	rust.enable = true;
+	bash.enable = true;
+	clang.enable = true;
+	css.enable = true;
+	html.enable = true;
+	lua.enable = true;
+	python.enable = true;
+	sql.enable = true;
+	tailwind.enable = true;
+	yaml.enable = true;
 	};
   };
 }
