@@ -5,7 +5,7 @@
     theme = {
       enable = true;
       name = "solarized-osaka";
-      style = "deep";
+      style = "dark";
       };
      
      visuals = {
