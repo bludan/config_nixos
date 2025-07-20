@@ -115,6 +115,7 @@
 	chatterino7
 	pkg-config
 	tmux
+	normcap
   ];
   environment.variables = {
 	GTK_IM_MODULE = "ibus";
