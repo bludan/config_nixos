@@ -115,7 +115,8 @@
 	chatterino7
 	pkg-config
 	tmux
-	normcap
+	vlc
+	prismlauncher
   ];
   environment.variables = {
 	GTK_IM_MODULE = "ibus";
