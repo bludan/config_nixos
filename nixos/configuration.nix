@@ -117,6 +117,7 @@
 	tmux
 	vlc
 	prismlauncher
+	davinci-resolve
   ];
   environment.variables = {
 	GTK_IM_MODULE = "ibus";
