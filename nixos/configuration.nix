@@ -118,13 +118,20 @@
 	vlc
 	prismlauncher
 	davinci-resolve
+	mullvad-vpn
+	mullvad-browser
   ];
   environment.variables = {
 	GTK_IM_MODULE = "ibus";
 	QT_IM_MODULE = "ibus";
 	XMODIFIERS = "@im=ibus";
   };
-
+  hardware.graphics = {
+   enable = true;
+   extraPackages = with pkgs; [
+     rocmPackages.clr.icd
+    ];
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
