@@ -41,12 +41,16 @@
   type = "ibus";
   ibus.engines = with pkgs.ibus-engines; [ pinyin ];
   };
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -65,7 +69,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -86,6 +90,7 @@
   };
   services.flatpak.enable = true;
   programs.firefox.enable = true;
+  services.mullvad-vpn.enable = true;
   programs.steam = {
   	enable = true;
 	extraCompatPackages = [ pkgs.proton-ge-bin ];
@@ -97,14 +102,21 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+	waybar # systembar for hyprland
+	dunst
+	libnotify
+	swww
+	kitty # terminal
+	rofi-wayland # applauncher
+	networkmanagerapplet
 	vim
 	wget
 	discord
 	spotify
 	wineWowPackages.staging
 	winetricks
-	gnome-extension-manager
-	gnome-extensions-cli
+	# gnome-extension-manager GNOME
+	# gnome-extensions-cli GNOME
 	git
 	anki-bin
 	mpv
@@ -120,7 +132,10 @@
 	davinci-resolve
 	mullvad-vpn
 	mullvad-browser
+	ffmpeg
   ];
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   environment.variables = {
 	GTK_IM_MODULE = "ibus";
 	QT_IM_MODULE = "ibus";
