@@ -45,6 +45,19 @@
     enable = true;
     xwayland.enable = true;
   };
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  programs.dconf.profiles.user.databases = [
+    {
+      settings."org/gnome/desktop/interface" = {
+        gtk-theme = "Adwaita";
+        icon-theme = "Flat-Remix-Red-Dark";
+        font-name = "Noto Sans Medium 11";
+        document-font-name = "Noto Sans Medium 11";
+        monospace-font-name = "Noto Sans Mono Medium 11";
+      };
+    }
+  ];
+
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
@@ -59,7 +72,9 @@
   };
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
+  hardware.bluetooth = {
+    enable = true;
+  };
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -107,7 +122,7 @@
 	libnotify
 	swww
 	kitty # terminal
-	rofi-wayland # applauncher
+	rofi # applauncher
 	networkmanagerapplet
 	vim
 	wget
@@ -121,9 +136,6 @@
 	anki-bin
 	mpv
 	ibus
-	noto-fonts
-	noto-fonts-lgc-plus
-	noto-fonts-cjk-serif
 	chatterino7
 	pkg-config
 	tmux
@@ -133,7 +145,21 @@
 	mullvad-vpn
 	mullvad-browser
 	ffmpeg
+	blueman
+	brightnessctl
+	pwvucontrol
+	brave	# chromium based browser as backup
   ];
+  fonts = {
+  enableDefaultPackages = true;  # Basic system fonts
+  packages = with pkgs; [
+    noto-fonts  # General coverage
+    noto-fonts-emoji  # Emoji support
+    noto-fonts-cjk-sans  # CJK support (optional)
+    liberation_ttf  # Fallback sans/serif
+  ];
+  fontconfig.enable = true;  # Enable font rendering and caching
+};
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   environment.variables = {
