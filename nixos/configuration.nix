@@ -149,6 +149,8 @@
 	brightnessctl
 	pwvucontrol
 	brave	# chromium based browser as backup
+	libreoffice
+	lutris
   ];
   fonts = {
   enableDefaultPackages = true;  # Basic system fonts
@@ -157,6 +159,7 @@
     noto-fonts-emoji  # Emoji support
     noto-fonts-cjk-sans  # CJK support (optional)
     liberation_ttf  # Fallback sans/serif
+    font-awesome
   ];
   fontconfig.enable = true;  # Enable font rendering and caching
 };
