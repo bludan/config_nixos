@@ -151,6 +151,11 @@
 	brave	# chromium based browser as backup
 	libreoffice
 	lutris
+	iproute2
+	htop
+	nethogs
+	p7zip
+	hyprshot
   ];
   fonts = {
   enableDefaultPackages = true;  # Basic system fonts
