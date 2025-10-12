@@ -156,6 +156,13 @@
 	nethogs
 	p7zip
 	hyprshot
+	obs-studio
+	sfm
+	gparted
+	parted
+	disko
+	exfatprogs
+	f3
   ];
   fonts = {
   enableDefaultPackages = true;  # Basic system fonts
