@@ -90,6 +90,10 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  # fingerprint enable
+  services.fprintd.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -106,6 +110,16 @@
   services.flatpak.enable = true;
   programs.firefox.enable = true;
   services.mullvad-vpn.enable = true;
+  # power management + charging limit
+  services.auto-cpufreq = {
+  enable = true;
+  settings = {
+    ideapad_laptop_conservation_mode = {
+    enabled = true;
+    };
+  };
+};
+
   programs.steam = {
   	enable = true;
 	extraCompatPackages = [ pkgs.proton-ge-bin ];
@@ -163,6 +177,8 @@
 	disko
 	exfatprogs
 	f3
+	hyprlock
+	hypridle
   ];
   fonts = {
   enableDefaultPackages = true;  # Basic system fonts
