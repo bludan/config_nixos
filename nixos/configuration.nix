@@ -179,6 +179,7 @@
 	f3
 	hyprlock
 	hypridle
+	emulationstation-de
   ];
   fonts = {
   enableDefaultPackages = true;  # Basic system fonts
