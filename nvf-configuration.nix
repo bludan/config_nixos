@@ -32,6 +32,7 @@
 	sql.enable = true;
 	tailwind.enable = true;
 	yaml.enable = true;
+	assembly.enable = true;
 	};
   };
 }

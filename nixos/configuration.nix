@@ -73,23 +73,42 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   hardware.bluetooth = {
-    enable = true;
+  enable = true;
+  settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+      Experimental = true;
+    };
   };
+};
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
+    pulse.enable = true; # replaces PulseAudio
     jack.enable = true;
 
+    # Optional: Enable Bluetooth extensions
+    wireplumber.enable = true;
+
+    extraConfig.pipewire."context.modules" = [
+      {
+        name = "libpipewire-module-bluez5";
+        args = {
+          "bluez5.msbc-support" = true;
+          "bluez5.sbc-xq-support" = true;
+          "bluez5.enable-msbc" = true;
+          "bluez5.enable-hw-volume" = true;
+        };
+      }
+    ];
+  };
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
-  };
   # fingerprint enable
   services.fprintd.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
@@ -127,13 +146,21 @@
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [
+  (final: prev: {
+    libsecret = prev.libsecret.overrideAttrs (oldAttrs: {
+      doCheck = false;
+    });
+  })
+];
+  programs.npm.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 	waybar # systembar for hyprland
 	dunst
-	libnotify
+	spotube
 	swww
 	kitty # terminal
 	rofi # applauncher
@@ -141,7 +168,7 @@
 	vim
 	wget
 	discord
-	spotify
+	librespot
 	wineWowPackages.staging
 	winetricks
 	# gnome-extension-manager GNOME
@@ -179,7 +206,15 @@
 	f3
 	hyprlock
 	hypridle
-	emulationstation-de
+	retroarch-full
+	linuxKernel.packages.linux_xanmod_stable.xone
+	vscodium
+	krita
+	ngrok
+	peazip
+	yazi
+	qimgv
+	cava
   ];
   fonts = {
   enableDefaultPackages = true;  # Basic system fonts
@@ -219,8 +254,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+    networking.firewall.allowedTCPPorts = [ 25565 ];
+    networking.firewall.allowedUDPPorts = [ 25565 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

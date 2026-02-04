@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
 	# compilers/basic stuff
 	gcc	# C/C++
+	nasm
 	clang	# LLVM C/C++
 	cmake	# build
 	rustc	# rust
@@ -12,7 +13,7 @@
 	
 	# libraries/other tools
 	nodejs	# node runtime
-	docker	# container
+	#docker	# container
 	cargo	# rust pkg manager
 	rust-analyzer	# idk if needed
 	rustup	# toolchain manager
@@ -30,8 +31,13 @@
 	gtk3	# NEW
 	android-studio 	# IDE for android dev
 	openssl	# NEW
+	#mongodb # commented out as its not secure
   	
   ];
+  virtualisation.docker.rootless = {
+  enable = true;
+  setSocketVariable = true;
+  };
   # makes storing data easier and more reproducable
   environment.variables = {
   RUSTUP_HOME = "/etc/rustup";
