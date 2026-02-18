@@ -215,6 +215,7 @@
 	yazi
 	qimgv
 	cava
+	easyeffects
   ];
   fonts = {
   enableDefaultPackages = true;  # Basic system fonts

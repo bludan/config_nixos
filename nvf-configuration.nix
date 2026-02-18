@@ -7,7 +7,11 @@
       name = "solarized-osaka";
       style = "dark";
       };
-     
+      mini.tabline.enable = true;
+      options = {
+      tabstop = 2;
+      shiftwidth = 2;
+      };
      visuals = {
        indent-blankline.enable = true;
       };
@@ -32,7 +36,10 @@
 	sql.enable = true;
 	tailwind.enable = true;
 	yaml.enable = true;
-	assembly.enable = true;
-	};
-  };
-}
+	#assembly = {  
+        #enable = true;
+         #   package = [*.asm = *.a];
+        #};
+      };
+    };
+  }
