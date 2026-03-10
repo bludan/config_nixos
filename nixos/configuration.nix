@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{config, pkgs, ... }:
 
 {
   imports =
@@ -11,7 +11,16 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; 
-
+  fileSystems."/home/karson/hdd-mount" = {
+   device = "/dev/disk/by-uuid/0101-3AC2";
+   fsType = "exfat";
+   options = [ # If you don't have this options attribute, it'll default to "defaults" 
+     # boot options for fstab. Search up fstab mount options you can use
+     "users" # Allows any user to mount and unmount
+     "nofail" # Prevent system from failing if this drive doesn't mount
+     
+   ];
+ };
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -216,6 +225,10 @@
 	qimgv
 	cava
 	easyeffects
+	kodi-wayland
+	libcec
+	tabula-java
+	tor-browser
   ];
   fonts = {
   enableDefaultPackages = true;  # Basic system fonts
