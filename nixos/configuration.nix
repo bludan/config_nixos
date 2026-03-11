@@ -215,7 +215,7 @@
 	f3
 	hyprlock
 	hypridle
-	retroarch-full
+	# 25.11 dependency fail retroarch-full
 	linuxKernel.packages.linux_xanmod_stable.xone
 	vscodium
 	krita
@@ -234,7 +234,7 @@
   enableDefaultPackages = true;  # Basic system fonts
   packages = with pkgs; [
     noto-fonts  # General coverage
-    noto-fonts-emoji  # Emoji support
+    noto-fonts-color-emoji
     noto-fonts-cjk-sans  # CJK support (optional)
     liberation_ttf  # Fallback sans/serif
     font-awesome
