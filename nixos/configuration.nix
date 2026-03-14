@@ -200,7 +200,7 @@
 	pwvucontrol
 	brave	# chromium based browser as backup
 	libreoffice
-	lutris
+	# lutris - 5.19 deprecated, using flatpak instead
 	iproute2
 	htop
 	nethogs
