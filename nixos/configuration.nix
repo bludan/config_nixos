@@ -90,6 +90,7 @@
     };
   };
 };
+  boot.kernelModules = [ "snd-seq" "snd-seq-midi" ];
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -97,12 +98,11 @@
   services.pipewire = {
     enable = true;
     alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true; # replaces PulseAudio
     jack.enable = true;
-
-    # Optional: Enable Bluetooth extensions
     wireplumber.enable = true;
-
+    # Optional: Enable Bluetooth extensions
     extraConfig.pipewire."context.modules" = [
       {
         name = "libpipewire-module-bluez5";
@@ -229,6 +229,13 @@
 	libcec
 	tabula-java
 	tor-browser
+	wireshark
+	tcpdump
+	hyprpaper
+	reaper
+	usbutils
+	alsa-utils
+	signal-desktop
   ];
   fonts = {
   enableDefaultPackages = true;  # Basic system fonts
